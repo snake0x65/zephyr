@@ -1,0 +1,13 @@
+description: Cirrus Logic CS4XA09 audio codec over SPI
+
+compatible: "cirrus,cs35l41-spi"
+
+include: ["spi-device.yaml", "cirrus,cs35l41.yaml"]
+
+properties:
+  reg:
+    required: true
+
+  spi-max-frequency:
+    type: int
+    required: true

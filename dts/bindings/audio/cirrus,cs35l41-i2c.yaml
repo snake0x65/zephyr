@@ -1,0 +1,9 @@
+description: Cirrus Logic CS4XA09 audio codec over I2C
+
+compatible: "cirrus,cs35l41-i2c"
+
+include: ["i2c-device.yaml", "cirrus,cs35l41.yaml"]
+
+properties:
+  reg:
+    required: true

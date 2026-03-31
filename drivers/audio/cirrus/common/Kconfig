@@ -1,0 +1,15 @@
+#
+# Copyright 2026 Cirrus Logic, Inc. and
+#                  Cirrus Logic International Semiconductor Ltd.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+config AUDIO_CIRRUS_I2C
+	bool
+	default y if I2C
+	depends on I2C
+
+config AUDIO_CIRRUS_SPI
+	bool
+	default y if SPI
+	depends on SPI

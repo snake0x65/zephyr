@@ -1,0 +1,31 @@
+# Copyright 2026 Cirrus Logic, Inc. and
+#                  Cirrus Logic International Semiconductor Ltd.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+menu "Cirrus Logic audio drivers"
+
+
+config AUDIO_CIRRUS
+	bool "Cirrus Logic audio driver support"
+	default y
+
+if AUDIO_CIRRUS
+
+source "drivers/audio/cirrus/common/Kconfig"
+source "drivers/audio/cirrus/cs35l41/Kconfig"
+
+endif
+
+module = AUDIO_CIRRUS
+module-str = cirrus
+source "subsys/logging/Kconfig.template.log_config"
+
+config CIRRUS_INIT_PRIORITY
+	int "Audio driver init priority"
+	default 90
+	help
+	 Audio driver initialization priority.
+
+
+endmenu

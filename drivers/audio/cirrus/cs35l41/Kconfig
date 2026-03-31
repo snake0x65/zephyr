@@ -1,0 +1,25 @@
+# Copyright 2026 Cirrus Logic, Inc. and
+#                  Cirrus Logic International Semiconductor Ltd.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+config AUDIO_CS35L41
+	bool "Cirrus CS35L41 amplifier driver"
+	default n
+	help
+	  Cirrus CS35L41 amplifier driver core.
+
+config AUDIO_CS35L41_SPI
+	bool "Cirrus CS35L41 amplifier driver SPI"
+	depends on AUDIO_CS35L41 && SPI
+	default y if $(dt_compat_on_bus,$(DT_COMPAT_CIRRUS_CS35L41_SPI),spi)
+	help
+	  Cirrus CS35L41 amplifier driver SPI.
+
+config AUDIO_CS35L41_I2C
+	bool "Cirrus CS35L41 amplifier driver over I2C"
+	depends on AUDIO_CS35L41 && I2C
+	default y if $(dt_compat_on_bus,$(DT_COMPAT_CIRRUS_CS35L41_I2C),i2c)
+	help
+	  Cirrus CS35L41 amplifier driver I2C.
+
